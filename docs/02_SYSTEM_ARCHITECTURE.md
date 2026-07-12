@@ -9,26 +9,26 @@ Teacher Browser
 Cloudflare Pages
       |
       v
-Cloudflare Worker API / Edge Gateway
+Cloudflare Worker/OpenNext API Layer
       |
       +----------------------+
       |                      |
       v                      v
-Convex                  Hermes Runtime
-Realtime Data           Orchestration Layer
+Convex                  Hermes Desktop
+Realtime Data           Agent Planning Surface
                              |
               +--------------+--------------+
               |              |              |
               v              v              v
         Evaluation       Insights        Planner
-          Agent            Agent           Agent
+          Prompt           Prompt          Prompt
               |              |              |
               +------- OpenAI Provider -----+
                              |
               +--------------+--------------+
               |              |              |
               v              v              v
-           Linkup        ElevenLabs      Approved Tools
+           Linkup Slot    ElevenLabs Slot Approved Tools
 
 Wispr Flow -> Teacher input surface
 Dodo Payments -> roadmap commercialization
@@ -40,9 +40,9 @@ OpenAI is not integrated as a separate application service in the MVP.
 
 Instead:
 
-- Hermes is the runtime AI layer.
-- Hermes is configured to use OpenAI as the underlying model provider.
-- All runtime reasoning calls pass through Hermes.
+- Hermes Desktop is the agent and reasoning surface used by the developer and teacher demo flow.
+- Hermes Desktop is configured to use OpenAI credits as the underlying model provider.
+- The running application does not directly call OpenAI or embed a second agent runtime.
 - The product avoids maintaining duplicate prompt logic in both Hermes and direct OpenAI SDK code.
 
 This creates one AI execution surface and one place for:
@@ -101,17 +101,17 @@ Convex stores:
 - workflow runs,
 - audit events.
 
-## Runtime Layer
+## Workflow Layer
 
-Hermes runtime agents execute bounded workflows.
+The MVP application executes deterministic workflow state transitions and stores traceable events. Hermes Desktop prompts define how human-supervised agent reasoning should evaluate, explain, and plan.
 
-The app should call a workflow endpoint such as:
+A future server-side adapter may expose an endpoint such as:
 
 ```text
 POST /api/workflows/evaluate-submission
 ```
 
-The Worker or backend adapter:
+The future Worker or backend adapter:
 
 1. validates request,
 2. creates workflow record in Convex,

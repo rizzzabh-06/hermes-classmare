@@ -1,6 +1,26 @@
-# Classroom Intelligence Hermes Handbook
+# Classroom Intelligence
 
-This package contains the complete Hermes-first PRD, architecture, workflows, sponsor integrations, development phases, runtime prompts, testing strategy, deployment plan, and hackathon demo script.
+Hermes Desktop-powered CBSE assessment intelligence for teachers.
+
+The current build is a fast hackathon foundation: a Next.js + TypeScript app with seeded demo data, deterministic rubric evaluation, class insights, an editable weekly planner, Convex schema/functions, and Cloudflare Workers deployment configuration through OpenNext.
+
+## Commands
+
+| Purpose | Command |
+|---|---|
+| Install | `npm install` |
+| Develop | `npm run dev` |
+| Test | `npm test` |
+| Type-check | `npm run typecheck` |
+| Lint | `npm run lint` |
+| Build | `npm run build` |
+
+## Architecture notes
+
+- Hermes Desktop is the only AI/agent surface for the MVP, powered by the user's OpenAI credits.
+- The application does not include a direct OpenAI SDK or a second agent framework.
+- Convex is the primary data-layer target; the UI runs from local seeded data until a Convex deployment URL is configured.
+- Cloudflare deployment is configured with OpenNext and `wrangler.jsonc`.
 
 Start with:
 

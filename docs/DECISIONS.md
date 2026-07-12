@@ -18,6 +18,14 @@ Do not build a separate direct OpenAI SDK integration in the MVP.
 Reason:
 Avoid duplicated prompts, duplicated retries, and conflicting AI execution paths.
 
+## ADR-002A: Hermes Desktop-Only Agent Surface for MVP
+
+Decision:
+Use Hermes Desktop as the only agent surface during the hackathon MVP. The app ships deterministic local workflows and Convex-ready persistence boundaries, but it does not embed a server-side Hermes runtime adapter yet.
+
+Reason:
+The user already has Hermes Desktop powered by OpenAI credits. Keeping AI orchestration outside the app reduces credential, deployment, and runtime complexity while preserving a clear upgrade path.
+
 ## ADR-003: Convex as Primary Database
 
 Decision:

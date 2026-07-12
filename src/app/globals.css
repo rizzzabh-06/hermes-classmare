@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff8e7;
+  --foreground: #171717;
+  --ink: #111827;
+  --yellow: #ffd84d;
+  --pink: #ff7ab6;
+  --blue: #73c7ff;
+  --mint: #8ff0c2;
+  --orange: #ff9f45;
+  --purple: #b69cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, rgba(255, 216, 77, 0.42), transparent 32rem), var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.neo-card {
+  border: 3px solid var(--ink);
+  box-shadow: 7px 7px 0 var(--ink);
+  background: white;
+}
+
+.neo-button {
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 900;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.neo-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.neo-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}

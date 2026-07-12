@@ -11,13 +11,15 @@ Deliverables:
 - lint,
 - tests,
 - environment templates,
-- Cloudflare and Convex setup.
+- Cloudflare and Convex setup,
+- seeded deterministic demo workflow.
 
 Acceptance:
 
 - app runs locally,
-- preview deployment works,
-- Convex connection works.
+- production build passes,
+- Convex schema/functions exist,
+- demo can run without external secrets.
 
 ## Phase 1: Core Product Shell
 

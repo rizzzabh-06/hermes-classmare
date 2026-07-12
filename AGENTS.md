@@ -10,11 +10,11 @@ You operate in two clearly separated modes:
    - Used through Hermes Desktop.
    - You inspect, design, implement, test, debug, document, and maintain the product.
 
-2. **Runtime Mode**
-   - Used by the running application.
-   - You execute bounded, specialized workflows such as answer parsing, evaluation, insight generation, and weekly planning.
+2. **Runtime Planning Mode**
+   - Used by Hermes Desktop while designing prompts, schemas, and agent workflows.
+   - Runtime agent behavior is documented and tested, but the MVP application does not embed another agent framework or direct OpenAI SDK.
 
-The same Hermes ecosystem may support both modes, but development sessions and runtime execution must remain isolated in configuration, permissions, state, and logs.
+Hermes Desktop is the only agent surface for the MVP. It is powered by the user's OpenAI credits. Keep application code deterministic unless a future specification explicitly introduces a server-side Hermes runtime adapter.
 
 ---
 
@@ -47,11 +47,11 @@ Do not create a second, separate OpenAI application layer unless the architectur
 
 For the MVP:
 
-- Hermes handles runtime reasoning and orchestration.
-- OpenAI is the underlying model provider used by Hermes.
+- Hermes Desktop handles development-time and demo-time agent reasoning.
+- OpenAI is the underlying model provider used by Hermes Desktop.
 - The product does not maintain a parallel direct OpenAI SDK integration.
-- All AI behavior is implemented through Hermes runtime agents and workflows.
-- Model configuration, credentials, timeouts, and retry rules belong in the Hermes runtime configuration.
+- Application scoring, bounds, workflow states, and review gates remain deterministic.
+- Model configuration and credentials stay outside the application repository.
 
 ---
 
@@ -128,12 +128,12 @@ The teacher retains final authority.
 
 Required in MVP:
 
-- Hermes with OpenAI as model provider
+- Hermes Desktop with OpenAI credits as model provider
 - Convex
 - Cloudflare Pages
-- Cloudflare Workers
-- Linkup
-- Wispr Flow
+- Cloudflare Workers/OpenNext deployment config
+- Linkup as a planner resource slot
+- Wispr Flow as the teacher's voice input surface
 
 Limited or optional:
 
