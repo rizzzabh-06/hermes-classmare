@@ -1,0 +1,7 @@
+import { answers, students } from "@/data/demo";
+import { runDemoWorkflow } from "@/lib/workflow";
+
+export default function DemoPage() {
+  const workflow = runDemoWorkflow();
+  return <><div className="neo-page-header"><div><h1 className="neo-page-header__title">Teacher Review</h1><p className="neo-page-header__subtitle">AI drafts never become final marks without teacher approval.</p></div></div><div style={{display:"grid",gap:"1rem"}}>{workflow.evaluations.map((evaluation,index)=><article key={evaluation.answerId} className="neo-card" style={{padding:"1.5rem"}}><div style={{display:"flex",justifyContent:"space-between",gap:"1rem",flexWrap:"wrap"}}><div><h2 style={{fontWeight:900,fontSize:"1.25rem"}}>{students[index]?.name}</h2><p style={{fontWeight:600,maxWidth:"700px"}}>“{answers[index]?.rawResponse}”</p></div><strong style={{fontSize:"1.5rem"}}>{evaluation.awardedMarks}/{evaluation.maxMarks}</strong></div><div style={{marginTop:"1rem",padding:"1rem",background:"var(--background)",border:"3px solid var(--ink)"}}><b>Feedback:</b> {evaluation.feedback}<br/><b>Misconception:</b> {evaluation.misconception}</div><div style={{display:"flex",gap:".75rem",marginTop:"1rem",flexWrap:"wrap"}}><span className={`neo-badge ${evaluation.reviewRequired?"neo-badge--review":"neo-badge--completed"}`}>{evaluation.reviewRequired?"Review required":"Ready to approve"}</span><button className="neo-button neo-button--mint px-4 py-2">Approve draft</button><button className="neo-button neo-button--secondary px-4 py-2">Edit feedback</button></div></article>)}</div></>;
+}

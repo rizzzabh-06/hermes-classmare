@@ -2,7 +2,7 @@
 
 Hermes Desktop-powered CBSE assessment intelligence for teachers.
 
-The current build is a fast hackathon foundation: a Next.js + TypeScript app with seeded demo data, deterministic rubric evaluation, class insights, an editable weekly planner, Convex schema/functions, and Cloudflare Workers deployment configuration through OpenNext.
+The current build is a fast hackathon foundation: a Next.js + TypeScript teacher workspace with a test-plan builder, student-profile input, response capture, deterministic demo evaluation, class insights, Convex persistence contracts, and Cloudflare Workers deployment configuration through OpenNext.
 
 ## Commands
 
@@ -20,6 +20,7 @@ The current build is a fast hackathon foundation: a Next.js + TypeScript app wit
 - Hermes Desktop is the only AI/agent surface for the MVP, powered by the user's OpenAI credits.
 - The application does not include a direct OpenAI SDK or a second agent framework.
 - Convex is the primary data-layer target; the UI runs from local seeded data until a Convex deployment URL is configured.
+- The frontend emits versioned, human-review-gated input contracts for the separate AI engine being built by the other workstream.
 - Cloudflare deployment is configured with OpenNext and `wrangler.jsonc`.
 
 Start with:

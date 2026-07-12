@@ -15,6 +15,16 @@ export const listAssessmentPlans = query({
   handler: async (ctx) => await ctx.db.query("assessmentPlans").order("desc").collect(),
 });
 
+export const listStudents = query({
+  args: {},
+  handler: async (ctx) => await ctx.db.query("students").collect(),
+});
+
+export const listSubmissions = query({
+  args: {},
+  handler: async (ctx) => await ctx.db.query("submissions").order("desc").collect(),
+});
+
 export const saveAssessmentPlan = mutation({
   args: {
     title: v.string(),

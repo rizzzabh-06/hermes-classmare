@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Classroom Intelligence",
-  description: "Hermes Desktop-powered CBSE assessment intelligence for teachers.",
+  title: "Hermes · Classroom Intelligence",
+  description: "AI-powered CBSE assessment intelligence — evaluate answers, detect misconceptions, and generate weekly teaching plans.",
 };
 
 export default function RootLayout({

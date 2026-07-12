@@ -4,9 +4,10 @@ import {
   createAssessmentDraft,
   studentProfileSchema,
   submissionInputSchema,
+  type AssessmentPlanInput,
 } from "@/lib/input-engine";
 
-const validPlan = {
+const validPlan: AssessmentPlanInput = {
   title: "Quadrilaterals Diagnostic",
   className: "Grade 8 · Section A",
   board: "CBSE" as const,
@@ -14,7 +15,7 @@ const validPlan = {
   subject: "Mathematics",
   chapter: "Understanding Quadrilaterals",
   concepts: ["Angle sum property", "Parallelogram properties"],
-  bloomLevels: ["understand", "apply"] as const,
+  bloomLevels: ["understand", "apply"],
   questionCount: 5,
   totalMarks: 20,
   durationMinutes: 35,
